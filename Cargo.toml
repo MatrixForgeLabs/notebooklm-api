@@ -1,6 +1,6 @@
 [package]
 name = "notebooklm-api"
-version = "0.1.0"
+version = "0.1.0-alpha"
 edition = "2024"
 description = "Unofficial Rust client and CLI for Google NotebookLM"
 license = "MIT"

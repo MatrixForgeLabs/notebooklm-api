@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.1.0] - 2026-02-18
+## [0.1.0-alpha] - 2026-02-18
 
 ### Added
 - Rust library + CLI scaffold for NotebookLM operations.
@@ -13,3 +13,4 @@ All notable changes to this project will be documented in this file.
 - Fixture-backed parser tests and expanded unit coverage.
 - CLI global output modes (`json`, `table`, `tsv`) and `--quiet`.
 - Comprehensive documentation set under `docs/`.
+- CI/CD workflows for Linux + Windows verification and release binaries.

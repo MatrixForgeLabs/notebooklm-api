@@ -7,7 +7,12 @@ on:
 
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    name: Verify (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
     steps:
       - uses: actions/checkout@v4
       - name: Install Rust
@@ -15,6 +20,7 @@ jobs:
       - name: Cache cargo
         uses: Swatinem/rust-cache@v2
       - name: Format check
+        if: matrix.os == 'ubuntu-latest'
         run: cargo fmt --check
       - name: Build
         run: cargo check --all-targets
@@ -23,6 +29,7 @@ jobs:
       - name: Test
         run: cargo test --all-targets
       - name: Package check
+        if: matrix.os == 'ubuntu-latest'
         run: cargo package --allow-dirty --no-verify
 
   publish:
@@ -39,8 +46,19 @@ jobs:
         run: cargo publish --locked
 
   release-binaries:
-    runs-on: ubuntu-latest
+    name: Release Binary (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
     needs: verify
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            binary_name: notebooklm
+            artifact_name: notebooklm-linux-x86_64
+          - os: windows-latest
+            binary_name: notebooklm.exe
+            artifact_name: notebooklm-windows-x86_64.exe
     permissions:
       contents: write
     steps:
@@ -50,10 +68,11 @@ jobs:
       - name: Build release binary
         run: cargo build --release --bin notebooklm
       - name: Archive binary
+        shell: bash
         run: |
           mkdir -p dist
-          cp target/release/notebooklm dist/notebooklm-linux-x86_64
+          cp target/release/${{ matrix.binary_name }} dist/${{ matrix.artifact_name }}
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/notebooklm-linux-x86_64
+          files: dist/${{ matrix.artifact_name }}

@@ -28,7 +28,7 @@ Add to `Cargo.toml`:
 
 ```toml
 [dependencies]
-notebooklm-api = "0.1.0"
+notebooklm-api = "0.1.0-alpha"
 ```
 
 ### CLI

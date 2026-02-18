@@ -34,9 +34,9 @@ Use semantic versioning.
 
 Tag push workflow: `.github/workflows/release.yml`
 
-- `verify`: fmt/check/clippy/test/package
+- `verify`: fmt/check/clippy/test on Linux + Windows (package check on Linux)
 - `publish`: runs `cargo publish --locked` when `CARGO_REGISTRY_TOKEN` is configured
-- `release-binaries`: uploads Linux `notebooklm` binary to GitHub release
+- `release-binaries`: uploads Linux and Windows `notebooklm` binaries to GitHub release
 
 Required secret for crate publish:
 - `CARGO_REGISTRY_TOKEN`
