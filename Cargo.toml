@@ -1,0 +1,54 @@
+[package]
+name = "notebooklm-api"
+version = "0.1.0"
+edition = "2024"
+description = "Unofficial Rust client and CLI for Google NotebookLM"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/MatrixForgeLabs/notebooklm-api"
+documentation = "https://docs.rs/notebooklm-api"
+homepage = "https://docs.rs/notebooklm-api"
+keywords = ["notebooklm", "api", "automation", "cli", "rust"]
+categories = ["api-bindings", "command-line-utilities"]
+rust-version = "1.85"
+include = [
+  "src/**",
+  "tests/fixtures/**",
+  "README.md",
+  "LICENSE",
+  "CHANGELOG.md",
+  "PORTING.md",
+  "CONTRIBUTING.md",
+  "SECURITY.md",
+  "docs/**",
+  "examples/**",
+]
+
+[lib]
+name = "notebooklm_api"
+path = "src/lib.rs"
+
+[[bin]]
+name = "notebooklm"
+path = "src/bin/notebooklm.rs"
+
+[dependencies]
+clap = { version = "4.5", features = ["derive"] }
+dirs = "6.0"
+regex = "1.11"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls", "http2", "charset"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "2.0"
+tokio = { version = "1.44", features = ["macros", "rt-multi-thread"] }
+urlencoding = "2.1"
+uuid = { version = "1.8", features = ["v4", "fast-rng"] }
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+strip = true
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
