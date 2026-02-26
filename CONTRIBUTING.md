@@ -28,5 +28,5 @@ cargo test
 
 - [ ] Feature/fix implemented
 - [ ] Tests added/updated
-- [ ] Docs updated (`README.md`, `docs/*`, `PORTING.md`)
+- [ ] Docs updated (`README.md`, as needed)
 - [ ] No secrets committed

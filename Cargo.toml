@@ -17,10 +17,7 @@ include = [
   "README.md",
   "LICENSE",
   "CHANGELOG.md",
-  "PORTING.md",
   "CONTRIBUTING.md",
-  "SECURITY.md",
-  "docs/**",
   "examples/**",
 ]
 

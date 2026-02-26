@@ -16,5 +16,4 @@
 - [ ] CLI output contract changes
 
 ## Docs
-- [ ] README/docs updated
-- [ ] PORTING.md updated (if parity changed)
+- [ ] README updated (if behavior changed)

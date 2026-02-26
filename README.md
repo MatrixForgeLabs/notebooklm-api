@@ -18,8 +18,6 @@ Implemented API groups:
 - Sharing
 - Settings
 
-See `PORTING.md` for detailed parity tracking.
-
 ## Installation
 
 ### Library
@@ -112,13 +110,7 @@ async fn main() -> Result<()> {
 
 ## Documentation
 
-- `docs/cli.md`: full CLI usage
-- `docs/library.md`: library usage patterns
-- `docs/configuration.md`: auth/retry/output config
-- `docs/architecture.md`: internal architecture
-- `docs/operations.md`: runbook and observability guidance
-- `docs/security.md`: security handling for credentials
-- `docs/release.md`: release process
+- `README.md`: project overview and usage
 - `CONTRIBUTING.md`: contributor workflow
 
 ## Development
