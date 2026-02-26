@@ -3,4 +3,5 @@
 .DS_Store
 .env
 docs/
+PORTING.md
 SECURITY.md
